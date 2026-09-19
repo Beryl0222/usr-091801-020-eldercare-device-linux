@@ -4,7 +4,8 @@ const { spawnSync } = require("node:child_process");
 
 const result = spawnSync(
   "python3",
-  ["-m", "unittest", "-v", "service_contract"],
+  ["-m", "unittest", "-v",
+   "service_contract", "test_domain", "test_service_flow", "test_http_api"],
   { stdio: "inherit" },
 );
 
@@ -13,4 +14,3 @@ if (result.error) {
   process.exit(1);
 }
 process.exit(result.status ?? 1);
-
